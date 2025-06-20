@@ -1,0 +1,119 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f2f5;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 600px;
+  margin: 40px auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.chat-box {
+  height: 400px;
+  overflow-y: auto;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #fafafa;
+  margin-bottom: 10px;
+}
+
+/* Clearfix untuk chat-box agar dapat menangani elemen float di dalamnya */
+.chat-box::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.message {
+  margin: 8px 0;
+  padding: 8px 12px;
+  border-radius: 20px;
+  max-width: 80%;
+  display: inline-block;
+  overflow-wrap: break-word; /* Memastikan kata/string panjang akan dipecah dan dibungkus */
+  word-wrap: break-word; /* Alias lama untuk overflow-wrap, untuk kompatibilitas */
+  word-break: break-word; /* Membantu memecah kata jika diperlukan */
+}
+
+.message.user {
+  background-color: #d1e7ff;
+  float: right;
+  text-align: right;
+  clear: both; /* Memastikan setiap pesan baru berada di baris baru */
+}
+
+.message.bot {
+  background-color: #dff6dd;
+  float: left;
+  text-align: left;
+  clear: both; /* Memastikan setiap pesan baru berada di baris baru */
+}
+
+/* Styling untuk blok kode (pre) di dalam pesan */
+.message pre {
+  white-space: pre-wrap;   /* Mempertahankan spasi dan baris baru, tetapi membungkus teks */
+  word-wrap: break-word;   /* Memastikan string panjang di dalam pre juga dipecah */
+  background-color: #f0f0f0; /* Warna latar belakang untuk blok kode */
+  padding: 8px;           /* Padding di dalam blok kode (sedikit dikurangi) */
+  border-radius: 5px;      /* Sudut membulat untuk blok kode */
+  overflow-x: auto;        /* Tambahkan scroll horizontal jika konten masih terlalu lebar */
+  max-width: 100%;         /* Pastikan pre tidak lebih lebar dari kontainer .message */
+  box-sizing: border-box;  /* Padding dan border termasuk dalam width/height pre */
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+/* Mengurangi margin atas dan bawah default untuk paragraf di dalam pesan bot */
+.message.bot p {
+  margin-top: 0.25em; /* Mengurangi margin atas standar paragraf */
+  margin-bottom: 0.5em; /* Mengurangi margin bawah standar paragraf */
+}
+
+
+/* Styling untuk kode inline (code) di dalam pesan */
+.message code:not(pre code) { /* Target kode inline, bukan kode di dalam pre */
+  background-color: #e9e9e9;
+  padding: 0.2em 0.4em;
+  margin: 0;
+  font-size: 85%;
+  border-radius: 3px;
+}
+
+form {
+  display: flex;
+  gap: 10px;
+}
+
+input[type="text"] {
+  flex: 1;
+  padding: 10px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #0d6efd;
+  color: white;
+  border-radius: 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0b5ed7;
+}
