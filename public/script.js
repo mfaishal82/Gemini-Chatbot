@@ -90,10 +90,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const data = await response.json();
             hideThinkingMessage(); // Sembunyikan pesan "thinking" sebelum menampilkan balasan
-            // Menggunakan DOMPurify atau library sejenis di production sangat disarankan
-            // untuk mencegah XSS jika bot mengembalikan HTML.
-            // Untuk saat ini, kita percaya output dari API.
-            appendMessage(data.reply, 'bot');
+            
+            // Konversi respon Markdown ke HTML menggunakan marked.js
+            // PENTING: Untuk production, sangat disarankan untuk membersihkan output HTML ini untuk mencegah XSS.
+            appendMessage(marked.parse(data.reply), 'bot');
         } catch (error) {
             console.error('Error:', error);
             hideThinkingMessage(); // Sembunyikan pesan "thinking" jika terjadi error
